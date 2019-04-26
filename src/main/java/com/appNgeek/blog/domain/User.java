@@ -42,6 +42,9 @@ public class User extends BaseEntity {
 	@Column(name = "enabled")
 	private boolean enabled;
 
+	@Column(name = "profile_image_url")
+	private String profileImageURL;
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Set<Role> roles;
 
@@ -60,6 +63,11 @@ public class User extends BaseEntity {
 	public void removeRole(Role role) {
 		roles.remove(role);
 		role.getUsers().remove(this);
+	}
+
+	public void copy(User user) {
+		this.email = user.getEmail();
+		this.name = user.getName();
 	}
 
 }
