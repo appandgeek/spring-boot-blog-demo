@@ -26,8 +26,4 @@ public class UserService extends AbstractService<User, Long> {
 		return userRepository.findByEmail(email);
 	}
 
-	public User findByMobile(String mobile) {
-		return userRepository.findByMobile(mobile);
-	}
-
 }

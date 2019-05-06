@@ -9,8 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.dom4j.tree.AbstractEntity;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -30,7 +28,7 @@ import lombok.ToString;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Permission.class)
 @Entity
 @Table(name = "permissions")
-public class Permission extends AbstractEntity {
+public class Permission extends BaseEntity {
 
 	private static final long serialVersionUID = -734952105558095633L;
 
