@@ -14,16 +14,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	private static final String[] AUTH_LIST = { //
-			"/swagger-resources/**", //
-			"/swagger-ui.html**", //
-			"/webjars/**", //
-			"/v2/api-docs" //
+			"/v2/api-docs", //
+			"/configuration/ui", //
+			"/swagger-resources", //
+			"/configuration/security", //
+			"/swagger-ui.html", //
+			"/webjars/**" //
 	};
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("api-user").password(passwordEncoder().encode("password")).roles("USER").and().withUser("api-admin")
-				.password(passwordEncoder().encode("admin")).roles("USER", "ADMIN");
+		auth.inMemoryAuthentication().withUser("api-user").password(passwordEncoder().encode("password")).roles("USER").and()
+				.withUser("api-admin").password(passwordEncoder().encode("admin")).roles("USER", "ADMIN");
 	}
 
 	@Override
